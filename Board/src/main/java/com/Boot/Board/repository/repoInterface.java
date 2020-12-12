@@ -2,6 +2,7 @@ package com.Boot.Board.repository;
 
 import com.Boot.Board.dto.Member;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface repoInterface {
@@ -10,16 +11,16 @@ public interface repoInterface {
     Member save(Member m);
 
     /*ID로 조회*/
-    String findById(int id);
+    Member findById(Long id);
 
     /*이름 변경*/
-    String changeNameById(int id);
+    Member changeNameById(Long id, String name);
 
     /*회원 삭제*/
-    Boolean delete(int id);
+    boolean delete(Long id);
 
     /*전체 조회*/
-    List<String> getAll();
+    ArrayList<Member> getAll();
 
 
 
