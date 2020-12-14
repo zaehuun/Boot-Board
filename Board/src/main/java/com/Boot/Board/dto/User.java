@@ -1,19 +1,18 @@
 package com.Boot.Board.dto;
 
-public class Member {
-    private Long id;
+public class User {
+    private String id;
     private String name;
 
-    public Member(Long id, String name){
+    public User(String id, String name){
         this.id = id;
         this.name = name;
     }
-
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 

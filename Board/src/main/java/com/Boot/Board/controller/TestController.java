@@ -5,11 +5,12 @@ import com.Boot.Board.service.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
-@RestController
+@Controller
 public class TestController {
     private service s;
 
@@ -17,7 +18,7 @@ public class TestController {
     public TestController(service s){
         this.s = s;
     }
-    @GetMapping("/")
+    @GetMapping("/test")
     public String test(){
         Member m = new Member(0L,"hello");
         Member m1 = new Member(0L,"hello1");
@@ -28,14 +29,16 @@ public class TestController {
         s.join(m2);
         s.join(m3);
 
-        return "Hello Boot!";
+        return "redirect:/";
     }
 
+    @ResponseBody
     @GetMapping("member/delete")
     public String delete(){
         s.delete(4L);
         return "complete";
     }
+    @ResponseBody
     @GetMapping("member/all")
     public ArrayList<Member> findAll(){
         return s.findAll();
