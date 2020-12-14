@@ -5,7 +5,9 @@ CRUD 학습을 위해 Spring-Boot를 이용하여 게시판 만들기!
 - Spring-Boot 2.4.0   
 - JAVA 11
 - Dependencies   
-  > Spring Web   
+  > Spring Web  
+  > mybatis-spring-boot-starter   
+  > mysql-connector-java   
   
   
 
@@ -34,9 +36,14 @@ CRUD 학습을 위해 Spring-Boot를 이용하여 게시판 만들기!
   List<String> list = new ArrayList<>(100);
   ```
 - Collection?   
-   - 일어나서..
+   - 일어나서..   
+- mybatis-spring-boot-starter 라이브러리?
+   - mybatis, mybatis-spring, mybatis-spring-autoconfigure 이 3가지 라이브러리를 포함한 라이브러리이다.   
+   - 보통 데이터베이스와의 물리적 연결을 관리하는 DataSource, 그 위에 sqlSession을 만들고, 그 위에 sqlSessionTemplate을 만들어 설정을 하는데 mybatis-spring-autoconfigure 라이브러리는 이 복잡한 설정을 자동으로 해준다.   
+   - 우리는 데이터 베이스의 주소, 아이디, 비밀번호만 지정해주면 끝! (application.properties에 적어주면 된다.)   
   
   
 ### 으엥?   
 - 20/12/12 : 아무리 생각해봐도 서비스보다는 DB API를 먼저 구현하는 게 더 효율적일 거 같다. 인터페이스 하나 만들고 내일은 hashmap으로만 작업하고 서비스까지 구현이 끝나면 마이바티스는 jpa를 사용하여 DB api 작업을 해야겠다.   
-- 20/12/13 : 상당히 허설프고 엉망인 코드로 service, controller, repository 구현을 했다. view 페이지가 없어서 값을 직접 넣어줬는데 내일 간단히 회원 가입 페이지와 로그인 페이지를 제작하여 로그인 기능을 작업 해야겠다.
+- 20/12/13 : 상당히 허설프고 엉망인 코드로 service, controller, repository 구현을 했다. view 페이지가 없어서 값을 직접 넣어줬는데 내일 간단히 회원 가입 페이지와 로그인 페이지를 제작하여 로그인 기능을 작업 해야겠다.   
+- 20/12/15 : 마이바티스를 사용하여 데이터 베이스에 값 저장과 조회를 해봤다. 요즘은 마이바티스보다 JPA를 많이 쓴다지만 SQL문 공부 좀 해야 할 거 같아서 그냥 마이바티스로 하는 게 나을 듯 싶다.. XML 파일로 매핑을 하면 더 mapper를 커스터마이징 할 수 있다고는 하니 나중에 복잡한 쿼리문을 작성해야 한다면 사용해봐야겠다..
